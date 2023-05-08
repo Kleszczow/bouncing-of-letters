@@ -4,8 +4,10 @@
   box-sizing: border-box;
 }
 :root {
-  --bouncing-time: 0.7s;
+  --bouncing-time: 0.8s;
   --bounce-hight: 12px;
+  --color-letter: aliceblue;
+  --color-letter-bounce: rgba(240, 248, 255, 0.795);
 }
 body {
   background-color: black;
@@ -19,22 +21,31 @@ body {
 }
 .text {
   font-size: 30px;
-  color: aliceblue;
+  color: var(--color-letter);
   position: relative;
 }
 .up {
   position: relative;
   animation: var(--bouncing-time) bounce;
 }
+.none {
+  color: var(--color-letter);
+  animation: 0.1 non;
+}
 @keyframes bounce {
   0% {
     bottom: 0;
   }
   50% {
-    color: rgba(240, 248, 255, 0.795);
+    color: var(--color-letter-bounce);
     bottom: var(--bounce-hight);
   }
   100% {
     bottom: 0;
+  }
+}
+@keyframes non {
+  to {
+    color: var(--color-letter);
   }
 }
