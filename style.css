@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --animation-duration: 3s;
+  --typewriterCharacters: 23;
+}
+body,
+html {
+  width: 100%;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 420px;
+}
+.text {
+  font-size: 30px;
+  position: relative;
+}
+
+.text::after {
+  content: "";
+  top: 6px;
+  left: 0%;
+  width: 100%;
+  bottom: 4px;
+  background-color: white;
+  display: block;
+  position: absolute;
+  animation: left-right var(--animation-duration)
+      steps(var(--typewriterCharacters)) forwards,
+    blink 700ms steps(var(--typewriterCharacters)) infinite;
+  border-left: 3px solid rgb(0, 0, 0);
+}
+
+@keyframes left-right {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
+@keyframes blink {
+  to {
+    border-left: transparent;
+  }
+}
